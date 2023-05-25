@@ -11,6 +11,8 @@ interface IMyApiVideoPlayer extends ApiVideoPlayerProps {
   play(): void;
 }
 
+type ApiVideoPlayerRef = LegacyRef<IMyApiVideoPlayer> | undefined;
+
 export interface IvideosProps {
   video: Video | undefined
   mutate: () => void
@@ -19,7 +21,7 @@ export interface IvideosProps {
 const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
   const [playing, setPlaying] = useState(true)
   const [muted, setMuted] = useState(false)
-  const videoRef = useRef<IMyApiVideoPlayer | null>(null)
+  const videoRef = useRef<ApiVideoPlayerRef>(null)
 
   const onVideoPress = () => {
     if (playing) {
@@ -56,7 +58,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
         <ApiVideoPlayer
           video={{ id: video.videoId }}
           videoStyleObjectFit={'cover'}
-          ref={videoRef}
+          ref={videoRef as ApiVideoPlayerRef}
           style={{
             width: screen.width,
             height: height,
