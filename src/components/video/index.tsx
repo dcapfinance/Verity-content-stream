@@ -15,7 +15,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
 
     const { videoId } = video
 
-    const videoRef = useRef<ApiVideoPlayer>(pt6AEKgvRmrKOsw4ndVVRc0W)
+    const videoRef = useRef<ApiVideoPlayer>(null)
 
     const onVideoPress = () => {
         if (playing) {
