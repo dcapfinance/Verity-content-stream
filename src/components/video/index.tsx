@@ -3,9 +3,9 @@ import React, { FC, useRef, useState } from 'react'
 import Footer from '../footer'
 import Sidebar from '../sidebar'
 import styles from './videos.module.css'
-import ApiVideoPlayer, { default as OnMuteChange } from '@api.video/react-player'
+import ApiVideoPlayer, { ApiVideoPlayerProps, OnMuteChangeFn } from '@api.video/react-player'
 
-interface IMyApiVideoPlayer extends ApiVideoPlayer {
+interface IMyApiVideoPlayer extends ApiVideoPlayerProps {
   setMuted(value: boolean): void;
 }
 
@@ -45,7 +45,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
         videoRef.current?.setMuted(!muted)
     }
 
-    const onMute: OnMuteChange = (isMuted: boolean) => {
+    const onMute: OnMuteChangeFn = (player: ApiVideoPlayer, isMuted: boolean) => {
         setMuted(isMuted)
     }
 
@@ -81,4 +81,4 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
     )
 }
 
-export default VideoComponent
+export default VideoComponent;
