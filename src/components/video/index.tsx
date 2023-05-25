@@ -5,6 +5,10 @@ import Sidebar from '../sidebar'
 import styles from './videos.module.css'
 import ApiVideoPlayer, { default as OnMuteChange } from '@api.video/react-player'
 
+interface IMyApiVideoPlayer extends ApiVideoPlayer {
+  setMuted(value: boolean): void;
+}
+
 export interface IvideosProps {
     video: Video
     mutate: () => void
@@ -16,7 +20,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
 
     const { videoId } = video
 
-    const videoRef = useRef<ApiVideoPlayer>(null)
+    const videoRef = useRef<IMyApiVideoPlayer>(null)
 
     const onVideoPress = () => {
         if (playing) {
