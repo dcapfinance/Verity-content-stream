@@ -13,7 +13,7 @@ const Footer: FC<ISidebarProps> = ({ video }): JSX.Element => {
         <div className={styles.videoFooter}>
             <div className={styles.videoFooter__text}>
                 <h3>
-                    <span>@</span>api.video
+                    <span>#</span>CIRCLELIVE2023
                 </h3>
                 <p>{video.title}</p>
 
