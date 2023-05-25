@@ -31,7 +31,7 @@
 .banner__title {
     font-size: 40px;
     font-weight: bold;
-    color: #fff;
+    color: #2aff51;
 }
 
 .banner__subtitle {
@@ -62,7 +62,7 @@
 
 .qrcode__title {
     font-size: 30px;
-    color: #2aff51;
+    color: #fff;
     text-align: center;
     font-weight: bold;
     padding: 10px;
