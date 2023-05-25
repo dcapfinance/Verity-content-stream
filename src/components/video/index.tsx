@@ -1,6 +1,6 @@
 import { LegacyRef } from 'react';
 import Video from '@api.video/nodejs-client/lib/model/Video'
-import React, { FC, useRef, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import Footer from '../footer'
 import Sidebar from '../sidebar'
 import styles from './videos.module.css'
@@ -24,31 +24,24 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
   const [muted, setMuted] = useState(false)
   const videoRef = useRef<ApiVideoPlayerRef>(null)
 
+  useEffect(() => {
+    if (videoRef.current) {
+      if (playing) {
+        videoRef.current.play()
+      } else {
+        videoRef.current.pause()
+      }
+
+      videoRef.current.setMuted(muted)
+    }
+  }, [playing, muted])
+
   const onVideoPress = () => {
-    if (playing) {
-      pause()
-    } else {
-      play()
-    }
-  }
-
-  const pause = () => {
-    if (videoRef.current && !!(videoRef.current as IMyApiVideoPlayer).pause && typeof (videoRef.current as IMyApiVideoPlayer).pause === 'function') {
-      (videoRef.current as IMyApiVideoPlayer).pause()
-      setPlaying(false)
-    } else {
-      console.error('Invalid player object')
-    }
-  }
-
-  const play = () => {
-    videoRef.current?.play()
-    setPlaying(true)
+    setPlaying(!playing)
   }
 
   const toggleMute = () => {
     setMuted(!muted)
-    videoRef.current?.setMuted(!muted)
   }
 
   const onMute = (isMuted: boolean) => {
@@ -63,7 +56,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
         <ApiVideoPlayer
           video={{ id: video.videoId }}
           videoStyleObjectFit={'cover'}
-          ref={videoRef as ApiVideoPlayerRef}
+          ref={videoRef}
           style={{
             width: screen.width,
             height: height,
@@ -76,8 +69,8 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
           muted={false}
           onMuteChange={onMute}
           setMuted={setMuted}
-          pause={pause}
-          play={play}
+          pause={videoRef.current?.pause}
+          play={videoRef.current?.play}
         />
       )}
     </>
