@@ -48,7 +48,7 @@ const DesktopView: FC = (): JSX.Element => {
                         className={styles.desktop__video}
                         autoPlay
                         loop
-                        unmute
+                        muted
                         src={'https://cdn.api.video/vod/vi7Fsa0D6xz3uIP9Pcyzbkxp/mp4/source.mp4'}
                     />
                     <p className={styles.desktop__legend} style={{ textAlign: 'center' }}>
@@ -59,7 +59,7 @@ const DesktopView: FC = (): JSX.Element => {
             <footer className={styles.footer}>
                 Made with 🧡 &nbsp;by
                 <a href="https://verity-landing.vercel.app" target="_blank" rel="noreferrer" className={styles.orange}>
-                    &nbsp;api.video
+                    &nbsp;VerityAI
                 </a>
             </footer>
         </div>
