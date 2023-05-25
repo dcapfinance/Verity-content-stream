@@ -12,18 +12,27 @@ export interface IvideosProps {
 
 const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
     const [playing, setPlaying] = useState<boolean>(true)
+    const [showControls, setShowControls] = useState<boolean>(true)
 
     const { videoId } = video
 
     const videoRef = useRef<ApiVideoPlayer>(null)
 
-    const pause = () => {
-        videoRef.current?.pause()
-        setPlaying(false)
+    const togglePlayback = () => {
+        if (playing) {
+            videoRef.current?.pause()
+        } else {
+            videoRef.current?.play()
+        }
+        setPlaying(!playing)
     }
-    const play = () => {
-        videoRef.current?.play()
-        setPlaying(true)
+
+    const handleVideoPress = () => {
+        setShowControls(!showControls)
+        if (showControls && !playing) {
+            videoRef.current?.play()
+            setPlaying(true)
+        }
     }
 
     const height = window.screen.availHeight - 50
@@ -31,7 +40,11 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
     return (
         <>
             {video && (
-                <div className={styles.video} id={videoId}>
+                <div
+                    className={styles.video}
+                    id={videoId}
+                    onClick={handleVideoPress}
+                >
                     <ApiVideoPlayer
                         video={{ id: videoId }}
                         videoStyleObjectFit={'cover'}
@@ -44,6 +57,8 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
                         }}
                         autoplay
                         loop
+                        controls={showControls}
+                        onClick={togglePlayback}
                     />
                     <Footer video={video} />
                     <Sidebar video={video} mutate={mutate} />
