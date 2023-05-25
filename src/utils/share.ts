@@ -1,7 +1,7 @@
 export const onShare = async () => {
-    const title = 'TikTok clone by api.video'
+    const title = '#CIRCLELIVE2023'
     const url = window.document.location.href
-    const text = 'Take a look at how quick it is to build a tiktok clone using pwa'
+    const text = 'Take a look at how quick it is to build a #CIRCLELIVE2023 using pwa'
 
     if (navigator.share) {
         try {

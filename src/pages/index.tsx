@@ -23,8 +23,8 @@ const Home: NextPage = () => {
     return (
         <div className={styles.app} id="videos__container">
             <Head>
-                <title>TikTok clone</title>
-                <meta name="description" content="Rebuilding TikTok with api.video, PWA, Next.js and Typescript 🎵" />
+                <title>#CIRCLELIVE2023</title>
+                <meta name="description" content="Rebuilding #CIRCLELIVE2023 with api.video, PWA, Next.js and Typescript 🎵" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
