@@ -1,84 +1,35 @@
-import Video from '@api.video/nodejs-client/lib/model/Video'
-import React, { FC, useRef, useState } from 'react'
-import Footer from '../footer'
-import Sidebar from '../sidebar'
-import styles from './videos.module.css'
+import Video from '@api.video/nodejs-client/lib/model/Video' 
+import React, { FC, useRef, useState } from 'react' 
+import Footer from '../footer' 
+import Sidebar from '../sidebar' 
+import styles from './videos.module.css' 
 import ApiVideoPlayer, { ApiVideoPlayerProps } from '@api.video/react-player'
 
-interface IMyApiVideoPlayer extends ApiVideoPlayerProps {
-  setMuted(value: boolean): void;
-}
+interface IMyApiVideoPlayer extends ApiVideoPlayerProps { setMuted(value: boolean): void; pause(): void; play(): void; }
 
-export interface IvideosProps {
-    video: Video
-    mutate: () => void
-}
+export interface IvideosProps { video: Video mutate: () => void }
 
-const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
-    const [playing, setPlaying] = useState<boolean>(true)
-    const [muted, setMuted] = useState<boolean>(false)
+const VideoComponent: FC = ({ video, mutate }): JSX.Element => { const [playing, setPlaying] = useState(true) const [muted, setMuted] = useState(false)
 
-    const { videoId } = video
+const { videoId } = video
 
-    const videoRef = useRef<IMyApiVideoPlayer>(null)
+const videoRef = useRef(null)
 
-    const onVideoPress = () => {
-        if (playing) {
-            pause()
-        } else {
-            play()
-        }
-    }
+const onVideoPress = () => { if (playing) { pause() } else { play() } }
 
-    const pause = () => {
-        videoRef.current?.pause()
-        setPlaying(false)
-    }
+const pause = () => { videoRef.current?.pause() setPlaying(false) }
 
-    const play = () => {
-        videoRef.current?.play()
-        setPlaying(true)
-    }
+const play = () => { videoRef.current?.play() setPlaying(true) }
 
-    const toggleMute = () => {
-        setMuted(!muted)
-        videoRef.current?.setMuted(!muted)
-    }
+const toggleMute = () => { setMuted(!muted) videoRef.current?.setMuted(!muted) }
 
-    const onMute = (isMuted: boolean) => {
-        setMuted(isMuted)
-    }
+const onMute = (isMuted: boolean) => { setMuted(isMuted) }
 
-    const height = window.screen.availHeight - 50
+const height = window.screen.availHeight - 50
 
-    return (
-        <>
-            {video && (
-                <div className={styles.video} id={videoId}>
-                    <ApiVideoPlayer
-                        video={{ id: videoId }}
-                        videoStyleObjectFit={'cover'}
-                        ref={videoRef}
-                        style={{
-                            width: screen.width,
-                            height: height,
-                            scrollSnapAlign: 'start',
-                            border: 0
-                        }}
-                        autoplay
-                        chromeless={false}
-                        loop
-                        muted={false}
-                        onMuteChange={onMute}
-                    />
-                    <div onClick={onVideoPress} className={styles.video__press}></div>
-                    <button onClick={toggleMute}>{muted ? 'Unmute' : 'Mute'}</button>
-                    <Footer video={video} />
-                    <Sidebar video={video} mutate={mutate} />
-                </div>
-            )}
-        </>
-    )
-}
+return ( <> {video && (
 
+<ApiVideoPlayer video={{ id: videoId }} videoStyleObjectFit={'cover'} ref={videoRef} style={{ width: screen.width, height: height, scrollSnapAlign: 'start', border: 0 }} autoplay chromeless={false} loop muted={false} onMuteChange={onMute} />
+{muted ? 'Unmute' : 'Mute'}
+)} </> ) }
 export default VideoComponent;
