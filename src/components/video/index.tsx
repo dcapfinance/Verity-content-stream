@@ -4,6 +4,7 @@ import Footer from '../footer';
 import Sidebar from '../sidebar';
 import styles from './videos.module.css';
 import ApiVideoPlayer, { ControlName } from '@api.video/react-player';
+import { screen } from 'electron';
 
 export interface IvideosProps {
   video: Video;
