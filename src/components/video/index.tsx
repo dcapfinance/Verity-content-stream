@@ -49,7 +49,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
                             border: 0,
                         }}
                         autoplay
-                        chromeless  // Chromeless mode: all controls are hidden
+                        chromeless={false}  // Chromeless mode: all controls are hidden
                         loop
                         muted
                     />
