@@ -17,14 +17,6 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
 
     const videoRef = useRef<ApiVideoPlayer>(null)
 
-    const onVideoPress = () => {
-        if (playing) {
-            pause()
-        } else {
-            play()
-        }
-    }
-
     const pause = () => {
         videoRef.current?.pause()
         setPlaying(false)
@@ -53,8 +45,6 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
                         autoplay
                         loop
                     />
-                    <div onClick={onVideoPress} className={styles.video__press}></div>
-
                     <Footer video={video} />
                     <Sidebar video={video} mutate={mutate} />
                 </div>
