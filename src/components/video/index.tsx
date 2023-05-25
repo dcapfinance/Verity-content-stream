@@ -1,5 +1,7 @@
 import Video from '@api.video/nodejs-client/lib/model/Video'
 import React, { FC, useRef, useState } from 'react'
+import Footer from '../footer'
+import Sidebar from '../sidebar'
 import styles from './videos.module.css'
 import ApiVideoPlayer from '@api.video/react-player'
 
@@ -40,24 +42,25 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
                 <div className={styles.video} id={videoId}>
                     <ApiVideoPlayer
                         video={{ id: videoId }}
-                        videoStyleObjectFit={'cover'} // The object-fit CSS
+                        videoStyleObjectFit={'cover'}
                         ref={videoRef}
                         style={{
                             width: screen.width,
                             height: height,
-                            scrollSnapAlign: 'start', // property to adjust position 
+                            scrollSnapAlign: 'start',
                             border: 0,
                         }}
                         autoplay
-                        chromeless  // Chromeless mode: all controls are hidden
+                        chromeless
                         loop
-                        muted={false}
+                        muted
                     />
                     <div onClick={onVideoPress} className={styles.video__press}></div>
+
+                    <Footer video={video} />
+                    <Sidebar video={video} mutate={mutate} />
                 </div>
             )}
         </>
     )
 }
-
-export default VideoComponent
