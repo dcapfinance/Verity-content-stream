@@ -11,7 +11,7 @@ export interface IvideosProps {
 }
 
 const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
-  const [playing, setPlaying] = useState<boolean>(true);
+  const [playing, setPlaying] = useState<boolean>(false);
   const [showControls, setShowControls] = useState<boolean>(true);
 
   const { videoId } = video;
@@ -41,7 +41,11 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
   const controlButtons: ControlName[] = [
     'play',
     'mute',
-    'fullscreen',
+    'volume',
+    'progress',
+    'current-time',
+    'duration',
+    'fullscreen'
   ];
 
   return (
@@ -60,7 +64,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
             }}
             autoplay
             loop
-            controls={showControls ? controlButtons : []} // Pass the array of control buttons only when showControls is true
+            controls={showControls ? controlButtons : []}
             onClick={togglePlayback}
           />
           <Footer video={video} />
