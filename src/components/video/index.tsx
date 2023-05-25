@@ -1,3 +1,4 @@
+import { LegacyRef } from 'react';
 import Video from '@api.video/nodejs-client/lib/model/Video'
 import React, { FC, useRef, useState } from 'react'
 import Footer from '../footer'
