@@ -3,7 +3,7 @@
     <img src="https://github.com/apivideo/api.video-api-specification/blob/master/apivideo_banner.png?raw=true" alt="api.video Logo" width="100%" >
 </a>
 </p>
-<h1 align="center">Rebuilding TikTok with api.video, PWA, Next.js and Typescript 🎵</h1>
+<h1 align="center">Rebuilding TikTok with VerityAI, PWA, Next.js and Typescript 🎵</h1>
 <div align="center">
     <a href="https://twitter.com/intent/follow?screen_name=api_video"><img src="https://img.shields.io/twitter/follow/api_video?style=social" alt="Twitter Badge"/></a>
     <a href="https://community.api.video"><img src="https://img.shields.io/discourse/topics?server=https%3A%2F%2Fcommunity.api.video" alt="Pull Requests Badge"/></a>
