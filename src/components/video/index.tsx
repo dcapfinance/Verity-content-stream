@@ -42,6 +42,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
                 <div className={styles.video} id={videoId}>
                     <ApiVideoPlayer
                         video={{ id: videoId }}
+                        controls={["play", "unmute"]}/>
                         videoStyleObjectFit={'cover'}
                         ref={videoRef}
                         style={{
