@@ -46,7 +46,6 @@ const DesktopView: FC = (): JSX.Element => {
                 <div className={styles.desktop__container}>
                     <video
                         className={styles.desktop__video}
-                        muted
                         autoPlay
                         loop
                         src={'https://cdn.api.video/vod/vi7Fsa0D6xz3uIP9Pcyzbkxp/mp4/source.mp4'}
