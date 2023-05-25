@@ -22,17 +22,16 @@ export interface IvideosProps {
 const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
   const [playing, setPlaying] = useState(true)
   const [muted, setMuted] = useState(false)
-  const videoRef = useRef<ApiVideoPlayerRef>(null)
+  const videoRef = useRef<RefObject<IMyApiVideoPlayer>>(null)
 
   useEffect(() => {
     if (videoRef.current) {
       if (playing) {
-        videoRef.current.play()
+        videoRef.current.current?.play();
       } else {
-        videoRef.current.pause()
+        videoRef.current.current?.pause();
       }
-
-      videoRef.current.setMuted(muted)
+      videoRef.current.current?.setMuted(muted)
     }
   }, [playing, muted])
 
@@ -69,8 +68,8 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
           muted={false}
           onMuteChange={onMute}
           setMuted={setMuted}
-          pause={videoRef.current?.pause}
-          play={videoRef.current?.play}
+          pause={videoRef.current?.current?.pause}
+          play={videoRef.current?.current?.play}
         />
       )}
     </>
