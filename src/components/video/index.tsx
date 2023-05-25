@@ -3,7 +3,7 @@ import React, { FC, useRef, useState } from 'react'
 import Footer from '../footer'
 import Sidebar from '../sidebar'
 import styles from './videos.module.css'
-import ApiVideoPlayer from '@api.video/react-player'
+import ApiVideoPlayer, { OnMuteChange } from '@api.video/react-player'
 
 export interface IvideosProps {
     video: Video
@@ -12,6 +12,7 @@ export interface IvideosProps {
 
 const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
     const [playing, setPlaying] = useState<boolean>(true)
+    const [muted, setMuted] = useState<boolean>(false)
 
     const { videoId } = video
 
@@ -35,6 +36,15 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
         setPlaying(true)
     }
 
+    const toggleMute = () => {
+        setMuted(!muted)
+        videoRef.current?.setMuted(!muted)
+    }
+
+    const onMute: OnMuteChange = (isMuted: boolean) => {
+        setMuted(isMuted)
+    }
+
     const height = window.screen.availHeight - 50
 
     return (
@@ -54,11 +64,11 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
                         autoplay
                         chromeless={false}
                         loop
-                        muted
-                        
+                        muted={false}
+                        onMuteChange={onMute}
                     />
                     <div onClick={onVideoPress} className={styles.video__press}></div>
-
+                    <button onClick={toggleMute}>{muted ? 'Unmute' : 'Mute'}</button>
                     <Footer video={video} />
                     <Sidebar video={video} mutate={mutate} />
                 </div>
