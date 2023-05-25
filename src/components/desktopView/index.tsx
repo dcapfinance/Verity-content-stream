@@ -48,7 +48,6 @@ const DesktopView: FC = (): JSX.Element => {
                         className={styles.desktop__video}
                         autoPlay
                         loop
-                        muted
                         src={'https://cdn.api.video/vod/vi7Fsa0D6xz3uIP9Pcyzbkxp/mp4/source.mp4'}
                     />
                     <p className={styles.desktop__legend} style={{ textAlign: 'center' }}>
