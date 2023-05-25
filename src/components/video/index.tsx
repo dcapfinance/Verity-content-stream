@@ -29,6 +29,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
         videoRef.current?.pause()
         setPlaying(false)
     }
+
     const play = () => {
         videoRef.current?.play()
         setPlaying(true)
@@ -42,19 +43,19 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
                 <div className={styles.video} id={videoId}>
                     <ApiVideoPlayer
                         video={{ id: videoId }}
-                        controls={["play", "mute"]}
                         videoStyleObjectFit={'cover'}
                         ref={videoRef}
                         style={{
                             width: screen.width,
                             height: height,
                             scrollSnapAlign: 'start',
-                            border: 0,
+                            border: 0
                         }}
                         autoplay
                         chromeless
                         loop
-                        muted
+                        muted={false}
+                        
                     />
                     <div onClick={onVideoPress} className={styles.video__press}></div>
 
