@@ -54,7 +54,7 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
                         autoplay
                         chromeless={false}
                         loop
-                        muted={false}
+                        muted
                         
                     />
                     <div onClick={onVideoPress} className={styles.video__press}></div>
