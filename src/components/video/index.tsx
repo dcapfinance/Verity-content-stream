@@ -33,8 +33,8 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
   }
 
   const pause = () => {
-    if (videoRef.current && typeof videoRef.current !== 'string' && typeof videoRef.current !== 'function' && videoRef.current !== null && typeof videoRef.current.pause === 'function') {
-      videoRef.current.pause()
+    if (videoRef.current && !!(videoRef.current as IMyApiVideoPlayer).pause && typeof (videoRef.current as IMyApiVideoPlayer).pause === 'function') {
+      (videoRef.current as IMyApiVideoPlayer).pause()
       setPlaying(false)
     } else {
       console.error('Invalid player object')
