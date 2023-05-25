@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import QRCode from 'react-qr-code'
 import styles from './desktop_view.module.css'
 import ApiVideoLogoWhite from '../../../public/logo-white.svg'
-import TikTokLogo from '../../../public/tiktok-logo.svg'
+import TikTokLogo from '../../../public/Circle_logo.png'
 import Image from 'next/image'
 
 const DesktopView: FC = (): JSX.Element => {
@@ -11,13 +11,13 @@ const DesktopView: FC = (): JSX.Element => {
             <div className={styles.desktop__wrapper}>
                 <div className={styles.banner__wrapper}>
                     <div className={styles.banner}>
-                        <p className={styles.banner__title}>TikTok Clone</p>
+                        <p className={styles.banner__title}>#CIRCLELIVE2023</p>
                         <p className={styles.banner__subtitle}>
                             Scan the QR code to get the mobile experience <span className={styles.orange}>*</span>
                         </p>
                         <div className={styles.qrcode__dark}>
                             <div className={styles.qrcode__white}>
-                                <QRCode value="https://api-video-tiktok-demo.vercel.app" size={200} />
+                                <QRCode value="https://verity-content-stream.vercel.app" size={200} />
                             </div>
                             <p className={styles.qrcode__title}>SCAN ME</p>
                         </div>
