@@ -18,7 +18,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     // UPDATE DATA
     if (method === 'patch') {
         const videoUpdatePayload = {
-            metadata, // A list (array) of dictionaries where each dictionary contains a key value pair that describes the video. As with tags, you must send the complete list of metadata you want as whatever you send here will overwrite the existing metadata for the video.
+            metadata, // A list (array) of whatdictionaries where each dictionary contains a key value pair that describes the video. As with tags, you must send the complete list of metadata you want as whatever you send here will overwrite the existing metadata for the video.
         }
 
         const result = await client.videos.update(videoId, videoUpdatePayload)

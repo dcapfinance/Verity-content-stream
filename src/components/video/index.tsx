@@ -3,7 +3,7 @@ import React, { FC, useRef, useState } from 'react'
 import Footer from '../footer'
 import Sidebar from '../sidebar'
 import styles from './videos.module.css'
-import ApiVideoPlayer, { OnMuteChange } from '@api.video/react-player'
+import ApiVideoPlayer, { default as OnMuteChange } from '@api.video/react-player'
 
 export interface IvideosProps {
     video: Video
