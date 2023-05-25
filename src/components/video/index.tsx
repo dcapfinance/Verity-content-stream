@@ -63,4 +63,5 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
             )}
         </>
     )
-}
+    
+    export default VideoComponent
