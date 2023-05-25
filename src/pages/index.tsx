@@ -24,8 +24,8 @@ const Home: NextPage = () => {
         <div className={styles.app} id="videos__container">
             <Head>
                 <title>#CIRCLELIVE2023</title>
-                <meta name="description" content="Rebuilding #CIRCLELIVE2023 with api.video, PWA, Next.js and Typescript 🎵" />
-                <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content="See the latest @ #CIRCLELIVE2023!" />
+                <link rel="icon" href="/favicon.ico" />i
             </Head>
 
             <div className={styles.app__large_screen}>
