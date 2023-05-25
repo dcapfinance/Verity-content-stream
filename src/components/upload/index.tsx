@@ -8,10 +8,10 @@ interface IUploadProps {
 
 const Upload: FC<IUploadProps> = ({ mutate }): JSX.Element => {
     const [progress, setProgress] = useState<number>(0)
-    const [isUploading, setIsUploading] = useState<boolean>(true)
+    const [isUploading, setIsUploading] = useState<boolean>(false)
 
     const [video, setVideo] = useState<VideoUploadResponse | undefined>(undefined)
-    const [ready, setReady] = useState<boolean>(true)
+    const [ready, setReady] = useState<boolean>(false)
     const [status, setStatus] = useState<{ ingested: boolean; encoded: boolean }>({ ingested: false, encoded: false })
     const [interId, setInterId] = useState<number | undefined>(undefined)
 
