@@ -1,7 +1,7 @@
 export const onShare = async () => {
     const title = '#CIRCLELIVE2023'
     const url = window.document.location.href
-    const text = 'Take a look at how quick it is to build a #CIRCLELIVE2023 using pwa'
+    const text = 'Take a look at whats happening right now @ #CIRCLELIVE2023'
 
     if (navigator.share) {
         try {

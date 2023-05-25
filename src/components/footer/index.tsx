@@ -25,7 +25,7 @@ const Footer: FC<ISidebarProps> = ({ video }): JSX.Element => {
                         speed={40}
                         style={{ maxWidth: '40%', marginLeft: '10px' }}
                     >
-                        <p>Integrate video with a few lines of code</p>
+                        <p>#CIRCLELIVE2023</p>
                     </Marquee>
                 </div>
             </div>

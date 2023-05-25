@@ -50,7 +50,7 @@ const Sidebar: FC<ISidebarProps> = ({ video, mutate }): JSX.Element => {
 
     return (
         <div className={styles.sidebar}>
-            <a href="https://api.video" target={'_blank'} rel="noreferrer">
+            <a href="https://verity-landing.vercel.app" target={'_blank'} rel="noreferrer">
                 <Image src={ApiVideoLogo} width={40} height={40} />
             </a>
             <div

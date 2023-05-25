@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import QRCode from 'react-qr-code'
 import styles from './desktop_view.module.css'
-import ApiVideoLogoWhite from '../../../public/logo-white.svg'
+import ApiVideoLogoWhite from '../../../public/logo-white.png'
 import TikTokLogo from '../../../public/Circle_logo.png'
 import Image from 'next/image'
 
@@ -58,7 +58,7 @@ const DesktopView: FC = (): JSX.Element => {
             </div>
             <footer className={styles.footer}>
                 Made with 🧡 &nbsp;by
-                <a href="https://api.video" target="_blank" rel="noreferrer" className={styles.orange}>
+                <a href="https://verity-landing.vercel.app" target="_blank" rel="noreferrer" className={styles.orange}>
                     &nbsp;api.video
                 </a>
             </footer>
