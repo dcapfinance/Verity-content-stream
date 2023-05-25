@@ -19,8 +19,8 @@ const Sidebar: FC<ISidebarProps> = ({ video, mutate }): JSX.Element => {
     const [likes, setLikes] = useState(0)
     const [bookmarks, setBookmarks] = useState(0)
 
-    const [clickedLikes, setClickedLikes] = useState(false)
-    const [clickedBookmarks, setClickedBookmarks] = useState(false)
+    const [clickedLikes, setClickedLikes] = useState(true)
+    const [clickedBookmarks, setClickedBookmarks] = useState(true)
 
     const { videoId } = video
 
