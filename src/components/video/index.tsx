@@ -1,7 +1,6 @@
 import { LegacyRef } from 'react';
 import Video from '@api.video/nodejs-client/lib/model/Video'
-import React, { FC, useEffect, useRef, useState } from 'react'
-import React, { RefObject } from 'react'
+import React, { FC, RefObject, useEffect, useRef, useState } from 'react'
 import Footer from '../footer'
 import Sidebar from '../sidebar'
 import styles from './videos.module.css'
