@@ -39,7 +39,6 @@ const VideoComponent: FC<IvideosProps> = ({ video, mutate }): JSX.Element => {
 
   // Array of available control button names
   const controlButtons: ControlName[] = [
-    'play-large',
     'play',
     'progress',
     'current-time',
